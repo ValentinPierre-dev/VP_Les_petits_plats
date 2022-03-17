@@ -1,8 +1,9 @@
 function cardFactory(data) {
-    const { id, name, servings, ingredients, time, description, appliance, ustensils } = data;
+    const { name, ingredients, time, description, photo } = data;
+    const { ingredient, quantity, unit } = ingredients
 
-    //const picture = `assets/photographers/${portrait}`;
-
+    const picture = `./images/assets/${photo}`;
+    console.log(data.ingredients)
     // Construit la card de la recette
     function getRecipeCardDOM() {
         const article = document.createElement( 'article' );
@@ -12,7 +13,7 @@ function cardFactory(data) {
             <div class="card">
 
                 <!-- Image de la card -->
-                <img src="https://picsum.photos/500/300?grayscale" class="card-img-top" alt="Hollywood Sign on The Hill"/>
+                <img src="${picture}" class="card-img-top" alt="${name}"/>
 
                 <!-- Corps de la card -->
                 <div class="card-body">
@@ -20,40 +21,25 @@ function cardFactory(data) {
                     <!-- En-tête titre et temps -->
                     <div class="d-flex justify-content-between">
                         <h5 class="card-title">${name}</h5>
-                        <div class="d-flex align-items-baseline">
+                        <div class="d-flex align-items-baseline time">
                             <i class="fa fa-clock"></i>
                             <p>${time} min</p>
                         </div>
                     </div>
 
-                    <!-- Liste des ingrédients -->
                     <div class="row">
-                        <div class="col">
+
+                        <!-- Liste des ingrédients -->
+                        <div class="col" id="ingredients">
                             <div>
-                                <span class="card-text ingredients">Lait de coco : </span>
-                                <span class="card-text quantity">400ml</span>
-                            </div>
-                            <div>
-                                <span class="card-text ingredients">Jus de citron : </span>
-                                <span class="card-text quantity">2</span>
-                            </div>
-                            <div>
-                                <span class="card-text ingredients">Crème de coco : </span>
-                                <span class="card-text quantity">4 cuillères</span>
-                            </div>
-                            <div>
-                                <span class="card-text ingredients">Sucre : </span>
-                                <span class="card-text quantity">20g</span>
-                            </div>
-                            <div>
-                                <span class="card-text ingredients">Glaçons : </span>
-                                <span class="card-text quantity">2</span>
+                                <span class="card-text ingredients">${ingredients[ingredient]} : </span>
+                                <span class="card-text quantity">${quantity} ${unit}</span>
                             </div>
                         </div>
 
                         <!-- Description de la recette -->
                         <div class="col">
-                            <p class="card-text">${description}</p>
+                            <p class="card-text recipe-desc">${description}</p>
                         </div>
                     </div>
                 </div>
@@ -63,5 +49,15 @@ function cardFactory(data) {
         return (article);
     }
 
-    return { name, time, description, getRecipeCardDOM }
+        /* Construit la card de la recette
+        function getIngredientCardDOM() {
+            const article = document.createElement( 'div' );
+            article.innerHTML = `
+                <span class="card-text ingredients">${ingredient} : </span>
+                <span class="card-text quantity">${quantity} ${unit}</span>
+            `
+            return (article);
+        }*/
+
+    return { name, time, description, picture, ingredients, ingredient, quantity, unit, getRecipeCardDOM }
 }

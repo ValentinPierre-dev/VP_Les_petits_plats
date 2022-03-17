@@ -126,6 +126,12 @@ a:link {
     font-weight: bold;
 }
 
-.card-body {
-    height: 250px;
+.recipe-desc {
+    height: 170px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.time i {
+    margin-right: 8px;
 }

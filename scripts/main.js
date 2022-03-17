@@ -1,0 +1,1 @@
+import { allRecipes } from "../datas/recipes.js";
