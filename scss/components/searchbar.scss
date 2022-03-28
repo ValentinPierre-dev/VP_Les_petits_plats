@@ -1,0 +1,40 @@
+.search {
+    width: 100%;
+    margin: 20px 0;
+    height: 65px;
+    background-color: #eee;
+    padding: 15px;
+    border-radius: 5px;
+
+    &-input {
+        width: 100%;
+        padding: 0 10px;
+        font-size: 19px;
+        font-weight: 300;
+        border: 0;
+        outline: 0;
+        background: none;
+        margin-top: 5px;
+        caret-color: transparent;
+        line-height: 20px;
+    }
+
+    .search-input {
+        caret-color: black;
+    }
+
+    &-icon {
+        height: 34px;
+        width: 34px;
+        float: right;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+        background-color: #eee;
+        font-size: 24px;
+        bottom: 30px;
+        position: relative;
+        border-radius: 5px;
+    }
+}

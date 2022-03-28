@@ -1,0 +1,140 @@
+.dropdown {
+    position: relative;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 2rem;
+    height: 5rem;
+    padding: 1.5rem;
+    color: white;
+    width: 100%;
+    -webkit-box-flex: 0.16;
+        -ms-flex: 0.16;
+            flex: 0.16;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border-radius: 0.5rem;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+    z-index: 9999;
+
+    &-Ingrédients {
+        background-color: $primary;
+
+        .list {
+            background-color: $primary;
+        }
+    }
+    &-Appareils {
+        background-color: $secondary;
+
+        .list {
+            background-color: $secondary;
+        }
+    }
+    &-Ustensiles {
+        background-color: $tertiary;
+
+        .list {
+            background-color: $tertiary;
+        }
+    }
+
+    h3 {
+        position: absolute;
+        font-family: 'Lato';
+        font-size: 1.3rem;
+        left: 1rem;
+    }
+
+    button {
+        position: absolute;
+        right: 10px;
+        font-size: 1.4rem;
+    }
+
+    input {
+        width: 100%;
+        background-color: transparent;
+        color: white;
+        padding: 5px;
+        outline: none;
+        border: none;
+        display: none;
+
+        &::placeholder {
+            color: white;
+            opacity: 0.4;
+            font-size: 1.2rem;
+        }
+    }
+
+    .list {
+        position: absolute;
+        display: none;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        top: 70px;
+        right: 0;
+        border-radius: 5px;
+        width: 100%;
+        color: white;
+        padding: 4px;
+        max-height: 400px;
+        overflow: hidden;
+
+        li {
+            width: 30%;
+            font-size: 1.2rem;
+            margin-left: 1rem;
+            text-align: start;
+            line-height: 2.3rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            cursor: pointer;
+        }
+    }
+}
+
+.active {
+    z-index: 999999;
+    -webkit-box-flex: 0.5;
+        -ms-flex: 0.5;
+            flex: 0.5;
+
+    h3 {
+        display: none;
+    }
+
+    i {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg);
+        -webkit-transition: -webkit-transform 0.3s ease;
+        transition: -webkit-transform 0.3s ease;
+        transition: transform 0.3s ease;
+        transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+    }
+
+    input {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+
+    .list {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+}

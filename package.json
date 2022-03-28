@@ -1,0 +1,19 @@
+{
+  "name": "valentinpierre_7_14032022",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./scss/main.scss:./css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ValentinPierre-dev/ValentinPierre_7_14032022.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ValentinPierre-dev/ValentinPierre_7_14032022/issues"
+  },
+  "homepage": "https://github.com/ValentinPierre-dev/ValentinPierre_7_14032022#readme"
+}

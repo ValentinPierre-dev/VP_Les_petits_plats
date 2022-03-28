@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+header {
+    margin-top: 40px;
+}
+
+body {
+    width: 80%;
+    margin: auto;
+}
+
+h3 {
+    font-family: map-get($family, primary);
+}
+
+p {
+    font-family: map-get($family, secondary);
+}
+
+a:link {
+    text-decoration: none;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    width: 0.5rem;
+}
+  
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 1rem;
+}
+  
+::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+}

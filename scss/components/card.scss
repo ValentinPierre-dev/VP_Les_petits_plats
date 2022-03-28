@@ -1,0 +1,49 @@
+.card {
+    border: none;
+    background: #eee;
+
+    img {
+        height: 250px;
+        object-fit: cover;
+    }
+
+    &-body {
+        height: 300px;
+    }
+
+    &-title {
+        font-family: 'Lato';
+        font-size: 1.25rem;
+        font-weight: bold;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 350px;
+    }
+
+    .recipe-desc {
+        height: 215px;
+        font-family: 'Roboto';
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .time {
+        font-family: 'lato';
+        font-weight: bold;
+        font-size: 1.25rem;
+
+        i {
+            margin-right: 8px;
+            font-size: 1.25rem;
+        }
+    }
+    
+    .ingredient-item {
+        list-style: none;
+    }
+    
+    .ingredient-style {
+        font-weight: bold;
+    }
+}
