@@ -195,17 +195,14 @@ button {
 .dropdown .list {
   position: absolute;
   display: none;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+  padding-bottom: 20px;
   top: 70px;
   right: 0;
   border-radius: 5px;
   width: 100%;
   color: white;
   padding: 4px;
-  max-height: 400px;
+  max-height: 300px;
   overflow: hidden;
 }
 .dropdown .list li {
@@ -218,6 +215,9 @@ button {
   overflow: hidden;
   text-overflow: ellipsis;
   cursor: pointer;
+}
+.dropdown .list li:hover {
+  opacity: 0.8;
 }
 
 .active {
@@ -250,8 +250,57 @@ button {
   overflow-x: hidden;
 }
 
-.close {
-  color: black;
+.tag {
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.tag:hover {
+  opacity: 0.8;
+}
+.tag p {
+  margin: 0;
+}
+
+.anim {
+  animation: pop 200ms ease;
+}
+
+.remove {
+  animation: depop 200ms ease;
+}
+
+.ingredients {
+  background-color: #3282F7;
+}
+
+.appareils {
+  background-color: #68D9A4;
+}
+
+.ustensiles {
+  background-color: #ED6454;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes depop {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,3 +1,47 @@
-.close {
-    color: black;
+.tag {
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    p{
+        margin: 0;
+    }
+}
+
+.anim {
+    animation: pop 200ms ease;
+}
+
+.remove {
+    animation: depop 200ms ease;
+}
+
+.ingredients {
+    background-color: $primary;
+}
+
+.appareils {
+    background-color: $secondary;
+}
+
+.ustensiles {
+    background-color: $tertiary;
+}
+
+@keyframes pop {
+    0% {transform: scale(0);}
+    100% {transform: scale(1);}
+}
+
+@keyframes depop {
+    0% {transform: scale(1);}
+    100% {transform: scale(0);}
 }

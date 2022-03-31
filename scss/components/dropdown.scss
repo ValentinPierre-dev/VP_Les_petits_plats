@@ -78,17 +78,14 @@
     .list {
         position: absolute;
         display: none;
-        -ms-flex-pack: distribute;
-            justify-content: space-around;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
+        padding-bottom: 20px;
         top: 70px;
         right: 0;
         border-radius: 5px;
         width: 100%;
         color: white;
         padding: 4px;
-        max-height: 400px;
+        max-height: 300px;
         overflow: hidden;
 
         li {
@@ -101,6 +98,10 @@
             overflow: hidden;
             text-overflow: ellipsis;
             cursor: pointer;
+
+            &:hover {
+                opacity: 0.8;
+            }
         }
     }
 }

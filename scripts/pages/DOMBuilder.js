@@ -32,7 +32,6 @@ export class DOMBuilder {
       }
 
       cardsContainer.innerHTML = htmlContent;
-      this.displayDropdowns();
     }
 
     sortItem(list, input, ul) {
@@ -109,7 +108,7 @@ export class DOMBuilder {
       for (let i = 0; i < itemsIngr.length; i++) {
         itemsIngr[i].addEventListener("click", () => {
           let tag = `
-            <div class="tag d-flex ingredients" id="${itemsIngr[i].id}">
+            <div class="tag ingredients anim" id="${itemsIngr[i].id}">
               <p class="tag-text">${itemsIngr[i].innerHTML}</p>
               <button class ="close" id="ingredient-${i}">
                 <i class="far fa-times-circle close-tag"></i>
@@ -121,15 +120,19 @@ export class DOMBuilder {
 
           tagsContainer.innerHTML += tag;
 
+          const anim = document.getElementsByClassName("anim");
+          Array.from(anim).forEach((e) => e.addEventListener("animationend", function() {
+            this.classList.remove("anim");
+          }))
+
           this.displayDropdowns();
-          //this.displayCards(this.recipesList.search(this.getUserRequest()));
         });
       }
 
       for (let i = 0; i < itemsApp.length; i++) {
         itemsApp[i].addEventListener("click", () => {
           let tag = `
-            <div class="tag d-flex appareils" id="${itemsApp[i].id}">
+            <div class="tag appareils anim" id="${itemsApp[i].id}">
               <p class="tag-text">${itemsApp[i].innerHTML}</p>
               <button class ="close" id="appareils-${i}">
                 <i class="far fa-times-circle close-tag"></i>
@@ -141,15 +144,19 @@ export class DOMBuilder {
 
           tagsContainer.innerHTML += tag;
 
+          const anim = document.getElementsByClassName("anim");
+          Array.from(anim).forEach((e) => e.addEventListener("animationend", function() {
+            this.classList.remove("anim");
+          }))
+
           this.displayDropdowns();
-          //this.displayCards(this.recipesList.search(this.getUserRequest()));
         });
       }
 
       for (let i = 0; i < itemsUst.length; i++) {
         itemsUst[i].addEventListener("click", () => {
           let tag = `
-            <div class="tag d-flex ustensiles" id="${itemsUst[i].id}">
+            <div class="tag ustensiles anim" id="${itemsUst[i].id}">
               <p class="tag-text">${itemsUst[i].innerHTML}</p>
               <button class ="close" id="ustensiles-${i}">
                 <i class="far fa-times-circle close-tag"></i>
@@ -161,8 +168,12 @@ export class DOMBuilder {
 
           tagsContainer.innerHTML += tag;
 
+          const anim = document.getElementsByClassName("anim");
+          Array.from(anim).forEach((e) => e.addEventListener("animationend", function() {
+            this.classList.remove("anim");
+          }))
+
           this.displayDropdowns();
-          //this.displayCards(this.recipesList.search(this.getUserRequest()));
         });
       }
     }
@@ -173,6 +184,21 @@ export class DOMBuilder {
       } else {
         this.displayCards(this.recipesList.getAllRecipes());
       }
+    }
+
+    // Ferme les tags
+    closeTags() {
+      let request = this.getUserRequest().tags;
+      let tags = document.querySelectorAll(".tag");
+      let closeTag = document.querySelectorAll(".tag button");
+
+      tags.forEach((e) => e.addEventListener("click", function() {
+        this.classList.add("remove");
+        const removeTag = document.getElementsByClassName("remove");
+        Array.from(removeTag).forEach((e) => e.addEventListener("animationend", function() {
+          this.remove()
+        }))
+      }))
     }
 
     // Affiche les dropdowns
@@ -192,6 +218,7 @@ export class DOMBuilder {
       });
       this.toggleDropdown();
       this.itemsListener();
+      this.closeTags();
     }
 
     displayPage() {

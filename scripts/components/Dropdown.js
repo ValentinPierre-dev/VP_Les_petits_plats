@@ -33,7 +33,7 @@ export class Dropdown {
                 <button class="btn-drop btn-drop-${this.type}">
                     <i class="icone fas fa-chevron-down"></i>
                 </button>
-                <ul class="list list-${this.type}">${this.listDropdown()}</ul>
+                <ul class="row row-cols-1 row-cols-md-3 g-0 list list-${this.type}">${this.listDropdown()}</ul>
             </div>
         `;
     }

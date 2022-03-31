@@ -6,5 +6,5 @@ const fetchDatas = new FetchDatas(ALLRECIPES);
 
 const recipesList = fetchDatas.getRecipesList(fetchDatas);
 
-new DOMBuilder(recipesList).displayCards(ALLRECIPES);
-//new DOMBuilder(recipesList).displayPage();
+//new DOMBuilder(recipesList).displayCards(ALLRECIPES);
+new DOMBuilder(recipesList).displayPage();
