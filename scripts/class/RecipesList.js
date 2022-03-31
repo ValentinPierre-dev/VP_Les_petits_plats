@@ -17,10 +17,9 @@ export class RecipesList {
       const allIngredients = new Set();
 
       for (let recipe of this.recipes) {
-        for (let i = 0; i < recipe.time.length; i++) {
-          let normalAcc = StringNormalize.normalizeAccents(recipe.time[i].ingredient);
+        for (let i = 0; i < recipe.ingredients.length; i++) {
+          let normalAcc = StringNormalize.normalizeAccents(recipe.ingredients[i].ingredient);
           let normalIngr = StringNormalize.capitalizeFirstChar(normalAcc);
-          console.log(normalIngr);
           allIngredients.add(normalIngr);
         }
       }
@@ -32,9 +31,8 @@ export class RecipesList {
       const allAppliances = new Set();
 
       for (let recipe of this.recipes) {
-        allAppliances.add(recipe.ustensils);
+        allAppliances.add(recipe.appliance);
       }
-      console.log(allAppliances)
       return [...allAppliances];
     }
 
@@ -43,8 +41,8 @@ export class RecipesList {
       const allUstensils = new Set();
 
       for (let recipe of this.recipes) {
-        for (let i = 0; i < recipe.photo.length; i++) {
-          let normalAcc = StringNormalize.normalizeAccents(recipe.photo[i]);
+        for (let i = 0; i < recipe.ustensils.length; i++) {
+          let normalAcc = StringNormalize.normalizeAccents(recipe.ustensils[i]);
           let normalUst = StringNormalize.capitalizeFirstChar(normalAcc);
           allUstensils.add(normalUst);
         }

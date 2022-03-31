@@ -16,13 +16,13 @@ export class FetchDatas {
                 new Recipe(
                 recipe.id,
                 recipe.name,
-                recipe.altText,
                 recipe.servings,
                 recipe.ingredients,
                 recipe.time,
                 recipe.description,
                 recipe.appliance,
-                recipe.ustensils
+                recipe.ustensils,
+                recipe.photo
                 )
             );
         }
