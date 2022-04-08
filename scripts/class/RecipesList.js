@@ -68,23 +68,4 @@ export class RecipesList {
       
       return this.recipes;
     }
-
-    // Tri des recettes en fonction de l'input recherche - Algo 1
-    searchByInput(request) {
-      let sortedRecipes = [];
-      this.recipes = this.Allrecipes;
-
-      if (request.inputRecherche != "") {
-        sortedRecipes = this.recipes.filter((recipe) =>
-          recipe.stringifyRecipes.includes(StringNormalize.normalizeAccents(request.inputRecherche)));
-      } else {
-        sortedRecipes = this.Allrecipes;
-      }
-
-      this.recipes = [...new Set(sortedRecipes)];
-
-      return this.recipes;
-    }
-
-    //TEST
 }
