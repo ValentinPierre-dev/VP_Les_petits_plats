@@ -10,14 +10,12 @@ export class DOMBuilder {
     }
 
     getUserRequest() {
-      const inputSearch = document.getElementById("search-input");
       const inputIngr = document.getElementById("input-Ingrédients");
       const inputApp = document.getElementById("input-Appareils");
       const inputUst = document.getElementById("input-Ustensiles");
 
       return {
         tags: this.tagSelected,
-        inputRecherche: inputSearch.value.trim(),
         inputIngredients: inputIngr.value.trim(),
         inputAppareils: inputApp.value.trim(),
         inputUstensiles: inputUst.value.trim()
