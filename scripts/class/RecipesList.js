@@ -49,4 +49,23 @@ export class RecipesList {
       }
       return [...allUstensils];
     }
+
+    // Tri les recettes en fonction des tags
+    searchByTags(request) {
+      let sortedRecipes = [];
+      //this.recipes = this.Allrecipes;
+
+      if (request.tags.length > 0) {
+        for (let tag in request.tags) {
+          sortedRecipes = this.recipes.filter((recipe) => 
+          recipe.stringifyRecipes.includes(StringNormalize.normalizeAccents(request.tags[tag])));
+        }
+      } else {
+        sortedRecipes = this.Allrecipes;
+      }
+
+      this.recipes = [...new Set(sortedRecipes)];
+      
+      return this.recipes;
+    }
 }
