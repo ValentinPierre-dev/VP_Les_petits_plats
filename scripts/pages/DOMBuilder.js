@@ -10,12 +10,14 @@ export class DOMBuilder {
     }
 
     getUserRequest() {
+      const inputSearch = document.getElementById("search-input");
       const inputIngr = document.getElementById("input-Ingrédients");
       const inputApp = document.getElementById("input-Appareils");
       const inputUst = document.getElementById("input-Ustensiles");
 
       return {
         tags: this.tagSelected,
+        inputRecherche: inputSearch.value.trim(),
         inputIngredients: inputIngr.value.trim(),
         inputAppareils: inputApp.value.trim(),
         inputUstensiles: inputUst.value.trim()
@@ -81,7 +83,7 @@ export class DOMBuilder {
         this.sortItem(allLiApp, this.getUserRequest().inputAppareils, ulApp);
       });
 
-      inputApp.addEventListener("input", (e) => {
+      inputUst.addEventListener("input", (e) => {
         this.sortItem(allLiUst, this.getUserRequest().inputUstensiles, ulUst);
       });
 
@@ -125,6 +127,7 @@ export class DOMBuilder {
             this.classList.remove("anim");
           }))
 
+          this.displayCards(this.recipesList.searchByTags(this.getUserRequest()));
           this.displayDropdowns();
         });
       }
@@ -149,6 +152,7 @@ export class DOMBuilder {
             this.classList.remove("anim");
           }))
 
+          this.displayCards(this.recipesList.searchByTags(this.getUserRequest()));
           this.displayDropdowns();
         });
       }
@@ -173,14 +177,29 @@ export class DOMBuilder {
             this.classList.remove("anim");
           }))
 
+          this.displayCards(this.recipesList.searchByTags(this.getUserRequest()));
           this.displayDropdowns();
         });
       }
     }
 
+    // Ecoute l'input de la barre de recherche et affiche les recettes recherchées
+    listenerInput() {
+      const search = document.getElementById("search-input");
+
+      search.addEventListener("input", (e) => {
+        if (search.value.length >= 3) {
+          this.displayCards(this.recipesList.searchByInput(this.getUserRequest()));
+        } else {
+          this.displayCards(this.recipesList.getAllRecipes());
+        }
+        this.displayDropdowns();
+      })
+    }
+
     listenerDrop() {
       if (this.getUserRequest().tags.length > 0) {
-        this.displayCards(this.recipesList.search(this.getUserRequest()));
+        this.displayCards(this.recipesList.searchByTags(this.getUserRequest()));
       } else {
         this.displayCards(this.recipesList.getAllRecipes());
       }
@@ -190,9 +209,22 @@ export class DOMBuilder {
     closeTags() {
       let request = this.getUserRequest().tags;
       let tags = document.querySelectorAll(".tag");
-      let closeTag = document.querySelectorAll(".tag button");
 
-      tags.forEach((e) => e.addEventListener("click", function() {
+      tags.forEach((tag) => tag.addEventListener('click', () => {
+        for (let i = 0; i < request.length; i++) {
+          
+          if (StringNormalize.normalizeAccents(tag.children[0].innerText).includes(request[i])) {
+            request.splice(i);
+            this.getUserRequest().tags = request;
+            console.log(this.getUserRequest().tags);
+          }
+        }
+        this.displayCards(this.recipesList.getAllRecipes());
+        this.listenerDrop();
+        this.displayDropdowns();
+      }))
+
+      tags.forEach((tag) => tag.addEventListener("click", function() {
         this.classList.add("remove");
         const removeTag = document.getElementsByClassName("remove");
         Array.from(removeTag).forEach((e) => e.addEventListener("animationend", function() {
@@ -224,5 +256,6 @@ export class DOMBuilder {
     displayPage() {
       this.displayDropdowns();
       this.listenerDrop();
+      this.listenerInput();
     }
 }

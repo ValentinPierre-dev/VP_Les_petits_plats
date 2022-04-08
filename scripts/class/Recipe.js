@@ -1,3 +1,5 @@
+import { StringNormalize } from "../components/StringNormalize.js";
+
 export class Recipe {
     constructor(
       id,
@@ -19,5 +21,9 @@ export class Recipe {
       this.appliance = appliance;
       this.ustensils = ustensils;
       this.photo = photo;
+    }
+
+    get stringifyRecipes() {
+      return StringNormalize.normalizeAccents(JSON.stringify(this, null, " \t"));
     }
 }
