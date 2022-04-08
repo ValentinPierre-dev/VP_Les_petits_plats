@@ -183,20 +183,6 @@ export class DOMBuilder {
       }
     }
 
-    // Ecoute l'input de la barre de recherche et affiche les recettes recherchées
-    listenerInput() {
-      const search = document.getElementById("search-input");
-
-      search.addEventListener("input", (e) => {
-        if (search.value.length >= 3) {
-          this.displayCards(this.recipesList.searchByInput(this.getUserRequest()));
-        } else {
-          this.displayCards(this.recipesList.getAllRecipes());
-        }
-        this.displayDropdowns();
-      })
-    }
-
     listenerDrop() {
       if (this.getUserRequest().tags.length > 0) {
         this.displayCards(this.recipesList.searchByTags(this.getUserRequest()));
@@ -256,6 +242,5 @@ export class DOMBuilder {
     displayPage() {
       this.displayDropdowns();
       this.listenerDrop();
-      this.listenerInput();
     }
 }
