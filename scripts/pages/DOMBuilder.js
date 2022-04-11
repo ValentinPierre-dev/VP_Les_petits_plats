@@ -181,6 +181,7 @@ export class DOMBuilder {
       }
     }
 
+    // Ecoute les tags sélectionnés et affiche les recettes recherchées
     listenerDrop() {
       if (this.getUserRequest().tags.length > 0) {
         this.displayCards(this.recipesList.searchByTags(this.getUserRequest()));
