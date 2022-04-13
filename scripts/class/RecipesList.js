@@ -76,6 +76,9 @@ export class RecipesList {
 
       if (request.inputRecherche != "") {
         for (let i = 0; i < this.recipes.length; i++) {
+          let stringRecipes = this.recipes[i].stringifyRecipes;
+          let stringInput = StringNormalize.normalizeAccents(request.inputRecherche);
+          console.log(stringRecipes);
 
         }
         sortedRecipes = this.recipes;
