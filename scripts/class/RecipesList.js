@@ -74,14 +74,17 @@ export class RecipesList {
       let sortedRecipes = [];
       this.recipes = this.Allrecipes;
 
-      if (request.inputRecherche != "") {
+      if (request.inputRecherche.length >= 3) {
         for (let i = 0; i < this.recipes.length; i++) {
           let stringRecipes = this.recipes[i].stringifyRecipes;
           let stringInput = StringNormalize.normalizeAccents(request.inputRecherche);
-          console.log(stringRecipes);
 
+          if (stringRecipes.includes(stringInput)) {
+            sortedRecipes.push(this.recipes[i]);
+          }
+          
+          console.log(sortedRecipes);
         }
-        sortedRecipes = this.recipes;
       } else {
         sortedRecipes = this.Allrecipes;
       }
