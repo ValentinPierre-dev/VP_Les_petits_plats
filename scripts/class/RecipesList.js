@@ -69,14 +69,16 @@ export class RecipesList {
       return this.recipes;
     }
 
-    // Tri des recettes en fonction de l'input recherche - Algo 1
+    // Tri des recettes en fonction de l'input recherche - Algo 2
     searchByInput(request) {
       let sortedRecipes = [];
       this.recipes = this.Allrecipes;
 
       if (request.inputRecherche != "") {
-        sortedRecipes = this.recipes.filter((recipe) =>
-          recipe.stringifyRecipes.includes(StringNormalize.normalizeAccents(request.inputRecherche)));
+        for (let i = 0; i < this.recipes.length; i++) {
+
+        }
+        sortedRecipes = this.recipes;
       } else {
         sortedRecipes = this.Allrecipes;
       }
