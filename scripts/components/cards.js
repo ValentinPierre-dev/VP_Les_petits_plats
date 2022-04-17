@@ -20,9 +20,16 @@ export class Cards {
                     <li  class = "ingredient-item"><span class="ingredient-style">${ingredient.ingredient}</span></li>
                 `;
             }
+
             if (ingredient.unit != undefined && ingredient.quantity != undefined) {
                 li = `
                     <li  class = "ingredient-item"><span class="ingredient-style">${ingredient.ingredient} : </span> ${ingredient.quantity} ${ingredient.unit}</li>
+                `;
+            }
+
+            if (window.innerWidth < 600) {
+                li = `
+                    <li  class = "ingredient-item"><span class="ingredient-style">${ingredient.ingredient}</span></li>
                 `;
             }
   
@@ -42,6 +49,10 @@ export class Cards {
             desc = this.recipe.description.substr(0, 230)+"...";
         } else {
             desc = this.recipe.description;
+        }
+
+        if ( nbchar > 135 && window.innerWidth < 600){
+            desc = this.recipe.description.substr(0, 135)+"...";
         }
 
         return `

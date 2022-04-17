@@ -29,6 +29,10 @@ button {
   cursor: pointer;
 }
 
+.logo {
+  width: 300px;
+}
+
 ::-webkit-scrollbar {
   width: 0.5rem;
 }
@@ -43,6 +47,11 @@ button {
   background: rgba(0, 0, 0, 0.2);
 }
 
+@media screen and (max-width: 600px) {
+  body {
+    width: 90%;
+  }
+}
 .search {
   width: 100%;
   margin: 20px 0;
@@ -123,6 +132,28 @@ button {
   font-weight: bold;
 }
 
+@media screen and (max-width: 600px) {
+  .card-title {
+    width: 200px;
+  }
+}
+.dropdowns-container {
+  display: flex;
+}
+
+@media screen and (max-width: 600px) {
+  .dropdowns-container {
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+
+  .dropdown {
+    padding: 2rem !important;
+    margin-top: 1rem;
+    margin-right: 0;
+    margin-bottom: 1rem !important;
+  }
+}
 .dropdown {
   position: relative;
   margin-top: 1rem;

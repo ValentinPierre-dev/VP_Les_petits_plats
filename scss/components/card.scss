@@ -47,3 +47,9 @@
         font-weight: bold;
     }
 }
+
+@media screen and (max-width: 600px) {
+    .card-title {
+        width: 200px;
+    }
+}

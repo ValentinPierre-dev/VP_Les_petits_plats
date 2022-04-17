@@ -29,6 +29,10 @@ button {
     cursor: pointer;
 }
 
+.logo {
+    width: 300px;
+}
+
 ::-webkit-scrollbar {
     width: 0.5rem;
 }
@@ -41,4 +45,10 @@ button {
 ::-webkit-scrollbar-thumb {
     border-radius: 1rem;
     background: rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        width: 90%;
+    }
 }
