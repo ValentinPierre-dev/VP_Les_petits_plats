@@ -51,10 +51,6 @@ export class Cards {
             desc = this.recipe.description;
         }
 
-        if ( nbchar > 135 && window.innerWidth < 600){
-            desc = this.recipe.description.substr(0, 135)+"...";
-        }
-
         return `
             <!-- Card d'une recette -->
             <div class="col">
