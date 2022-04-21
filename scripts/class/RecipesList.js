@@ -81,6 +81,12 @@ export class RecipesList {
         sortedRecipes = this.Allrecipes;
       }
 
+      if (sortedRecipes.length === 0) {
+        var p = document.getElementById('NoRecipes');
+        p.innerHTML = "";
+        p.innerHTML = "Aucune recette ne correspond à votre critère... Vous pouvez chercher Tarte aux pommes, poisson, etc.";
+      }
+
       this.recipes = [...new Set(sortedRecipes)];
 
       return this.recipes;
