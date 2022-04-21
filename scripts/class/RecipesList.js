@@ -82,9 +82,14 @@ export class RecipesList {
           if (stringRecipes.includes(stringInput)) {
             sortedRecipes.push(this.recipes[i]);
           }
-          
-          console.log(sortedRecipes);
         }
+
+        if (sortedRecipes.length === 0) {
+          var p = document.getElementById('NoRecipes');
+          p.innerHTML = "";
+          p.innerHTML = "Aucune recette ne correspond à votre critère... Vous pouvez chercher Tarte aux pommes, poisson, etc.";
+        }
+
       } else {
         sortedRecipes = this.Allrecipes;
       }

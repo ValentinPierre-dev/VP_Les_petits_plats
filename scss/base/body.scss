@@ -18,6 +18,15 @@ p {
     font-family: map-get($family, secondary);
 }
 
+.NoRecipes {
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+    font-family: map-get($family, primary);
+    font-weight: map-get($weight, bold);
+    font-size: map-get($size, big);
+}
+
 a:link {
     text-decoration: none;
 }
