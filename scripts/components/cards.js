@@ -27,11 +27,11 @@ export class Cards {
                 `;
             }
 
-            if (window.innerWidth < 600) {
+            /*if (window.innerWidth < 600) {
                 li = `
                     <li  class = "ingredient-item"><span class="ingredient-style">${ingredient.ingredient}</span></li>
                 `;
-            }
+            }*/
   
             htmlContent += li;
         }
@@ -49,6 +49,10 @@ export class Cards {
             desc = this.recipe.description.substr(0, 230)+"...";
         } else {
             desc = this.recipe.description;
+        }
+
+        if ( nbchar > 135 && window.innerWidth < 600){
+            desc = this.recipe.description.substr(0, 135)+"...";
         }
 
         return `

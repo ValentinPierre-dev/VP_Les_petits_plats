@@ -38,6 +38,11 @@
             font-size: 1.25rem;
         }
     }
+
+    .ingredient-list {
+        height: 220px;
+        overflow: hidden;
+    }
     
     .ingredient-item {
         list-style: none;

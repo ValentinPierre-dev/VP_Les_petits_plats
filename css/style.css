@@ -125,6 +125,10 @@ button {
   margin-right: 8px;
   font-size: 1.25rem;
 }
+.card .ingredient-list {
+  height: 220px;
+  overflow: hidden;
+}
 .card .ingredient-item {
   list-style: none;
 }
