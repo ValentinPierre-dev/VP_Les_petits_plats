@@ -29,6 +29,15 @@ button {
   cursor: pointer;
 }
 
+.NoRecipes {
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 18px;
+}
+
 ::-webkit-scrollbar {
   width: 0.5rem;
 }
