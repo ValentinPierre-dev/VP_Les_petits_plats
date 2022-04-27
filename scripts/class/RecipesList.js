@@ -74,7 +74,7 @@ export class RecipesList {
       let sortedRecipes = [];
       this.recipes = this.Allrecipes;
 
-      if (request.inputRecherche != "") {
+      if (request.inputRecherche.length >= 3) {
         sortedRecipes = this.recipes.filter((recipe) =>
           recipe.stringifyRecipes.includes(StringNormalize.normalizeAccents(request.inputRecherche)));
       } else {
